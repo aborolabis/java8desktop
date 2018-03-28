@@ -2,13 +2,10 @@ package pl.izabelak.java8desktop.Defibrylator;
 
 import java.util.Scanner;
 
-public class Solution {
+import static pl.izabelak.java8desktop.Defibrylator.Defibrillator.createDefibrillator;
+import static pl.izabelak.java8desktop.Defibrylator.StringUtils.doDouble;
 
-    // metoda zamienia string na typ double.
-    static double doDouble(String number){
-        String replaced = number.replace(',', '.');
-        return Double.valueOf(replaced);
-    }
+public class Solution {
 
     public static void main(String args[]) {
 
@@ -35,18 +32,6 @@ public class Solution {
         }
 
         System.out.println(nearest.getName());
-    }
-
-    private static Defibrillator createDefibrillator(String defib) {
-        String[] splitedDefib = defib.split(";");
-        int id = Integer.valueOf(splitedDefib[0]);
-        String name = splitedDefib[1];
-        String address = splitedDefib[2];
-        String phone = splitedDefib[3];
-        String longitude = splitedDefib[4];
-        String latitude = splitedDefib[5];
-
-        return new Defibrillator(id, name, address, phone, new Point(doDouble(longitude), doDouble(latitude)));
     }
 
 }
